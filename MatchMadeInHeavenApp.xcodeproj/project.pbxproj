@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47697E077FFF5FD58A597113 /* Pods_MatchMadeInHeavenApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A815751817849668B317850E /* Pods_MatchMadeInHeavenApp.framework */; };
+		D5144A4A22BA6A5500672130 /* birthChart.c in Sources */ = {isa = PBXBuildFile; fileRef = D5144A4922BA6A5500672130 /* birthChart.c */; };
 		D55288CA22B90BF3009CF353 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55288C922B90BF3009CF353 /* AppDelegate.swift */; };
 		D55288CC22B90BF3009CF353 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55288CB22B90BF3009CF353 /* ViewController.swift */; };
 		D55288CF22B90BF3009CF353 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55288CD22B90BF3009CF353 /* Main.storyboard */; };
 		D55288D222B90BF3009CF353 /* MatchMadeInHeavenApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D55288D022B90BF3009CF353 /* MatchMadeInHeavenApp.xcdatamodeld */; };
 		D55288D422B90BF6009CF353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D55288D322B90BF6009CF353 /* Assets.xcassets */; };
 		D55288D722B90BF6009CF353 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55288D522B90BF6009CF353 /* LaunchScreen.storyboard */; };
+		D57FD10E22CEF7D900607DF9 /* Ephemerides in Resources */ = {isa = PBXBuildFile; fileRef = D57FD10D22CEF7D900607DF9 /* Ephemerides */; };
+		D5BC9E7E22DD6016006F5BC6 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BC9E7D22DD6016006F5BC6 /* Results.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		535E8AD0514A4BCFF5875B77 /* Pods-MatchMadeInHeavenApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchMadeInHeavenApp.release.xcconfig"; path = "Target Support Files/Pods-MatchMadeInHeavenApp/Pods-MatchMadeInHeavenApp.release.xcconfig"; sourceTree = "<group>"; };
+		8C954AB970349CFD23B4A7F2 /* Pods-MatchMadeInHeavenApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatchMadeInHeavenApp.debug.xcconfig"; path = "Target Support Files/Pods-MatchMadeInHeavenApp/Pods-MatchMadeInHeavenApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A815751817849668B317850E /* Pods_MatchMadeInHeavenApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatchMadeInHeavenApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5144A4522BA65AB00672130 /* Bridger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridger.h; sourceTree = "<group>"; };
+		D5144A4822BA6A5500672130 /* birthChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = birthChart.h; sourceTree = "<group>"; };
+		D5144A4922BA6A5500672130 /* birthChart.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = birthChart.c; sourceTree = "<group>"; };
 		D55288C622B90BF3009CF353 /* MatchMadeInHeavenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchMadeInHeavenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D55288C922B90BF3009CF353 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D55288CB22B90BF3009CF353 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +34,8 @@
 		D55288D322B90BF6009CF353 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D55288D622B90BF6009CF353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D55288D822B90BF6009CF353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D57FD10D22CEF7D900607DF9 /* Ephemerides */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Ephemerides; sourceTree = "<group>"; };
+		D5BC9E7D22DD6016006F5BC6 /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47697E077FFF5FD58A597113 /* Pods_MatchMadeInHeavenApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55DE16568B7436B1AEEE9896 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A815751817849668B317850E /* Pods_MatchMadeInHeavenApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F93707E27AE4C91DDD01C69 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C954AB970349CFD23B4A7F2 /* Pods-MatchMadeInHeavenApp.debug.xcconfig */,
+				535E8AD0514A4BCFF5875B77 /* Pods-MatchMadeInHeavenApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D55288BD22B90BF3009CF353 = {
 			isa = PBXGroup;
 			children = (
 				D55288C822B90BF3009CF353 /* MatchMadeInHeavenApp */,
 				D55288C722B90BF3009CF353 /* Products */,
+				9F93707E27AE4C91DDD01C69 /* Pods */,
+				55DE16568B7436B1AEEE9896 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +88,18 @@
 		D55288C822B90BF3009CF353 /* MatchMadeInHeavenApp */ = {
 			isa = PBXGroup;
 			children = (
+				D57FD10D22CEF7D900607DF9 /* Ephemerides */,
 				D55288C922B90BF3009CF353 /* AppDelegate.swift */,
+				D5BC9E7D22DD6016006F5BC6 /* Results.swift */,
 				D55288CB22B90BF3009CF353 /* ViewController.swift */,
 				D55288CD22B90BF3009CF353 /* Main.storyboard */,
 				D55288D322B90BF6009CF353 /* Assets.xcassets */,
 				D55288D522B90BF6009CF353 /* LaunchScreen.storyboard */,
 				D55288D822B90BF6009CF353 /* Info.plist */,
 				D55288D022B90BF3009CF353 /* MatchMadeInHeavenApp.xcdatamodeld */,
+				D5144A4522BA65AB00672130 /* Bridger.h */,
+				D5144A4822BA6A5500672130 /* birthChart.h */,
+				D5144A4922BA6A5500672130 /* birthChart.c */,
 			);
 			path = MatchMadeInHeavenApp;
 			sourceTree = "<group>";
@@ -74,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D55288DB22B90BF6009CF353 /* Build configuration list for PBXNativeTarget "MatchMadeInHeavenApp" */;
 			buildPhases = (
+				0DC44EFD6747B9357A026D26 /* [CP] Check Pods Manifest.lock */,
 				D55288C222B90BF3009CF353 /* Sources */,
 				D55288C322B90BF3009CF353 /* Frameworks */,
 				D55288C422B90BF3009CF353 /* Resources */,
+				F22B0D1CE146668FC48A107A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -99,6 +138,7 @@
 				TargetAttributes = {
 					D55288C522B90BF3009CF353 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -127,17 +167,67 @@
 			files = (
 				D55288D722B90BF6009CF353 /* LaunchScreen.storyboard in Resources */,
 				D55288D422B90BF6009CF353 /* Assets.xcassets in Resources */,
+				D57FD10E22CEF7D900607DF9 /* Ephemerides in Resources */,
 				D55288CF22B90BF3009CF353 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0DC44EFD6747B9357A026D26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MatchMadeInHeavenApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F22B0D1CE146668FC48A107A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MatchMadeInHeavenApp/Pods-MatchMadeInHeavenApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TimeZonePicker/TimeZonePicker.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TimeZonePicker.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MatchMadeInHeavenApp/Pods-MatchMadeInHeavenApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D55288C222B90BF3009CF353 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5BC9E7E22DD6016006F5BC6 /* Results.swift in Sources */,
+				D5144A4A22BA6A5500672130 /* birthChart.c in Sources */,
 				D55288CC22B90BF3009CF353 /* ViewController.swift in Sources */,
 				D55288CA22B90BF3009CF353 /* AppDelegate.swift in Sources */,
 				D55288D222B90BF3009CF353 /* MatchMadeInHeavenApp.xcdatamodeld in Sources */,
@@ -284,8 +374,10 @@
 		};
 		D55288DC22B90BF6009CF353 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C954AB970349CFD23B4A7F2 /* Pods-MatchMadeInHeavenApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47BS437XF5;
 				INFOPLIST_FILE = MatchMadeInHeavenApp/Info.plist;
@@ -295,6 +387,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Edward.MatchMadeInHeavenApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = MatchMadeInHeavenApp/Bridger.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,8 +396,10 @@
 		};
 		D55288DD22B90BF6009CF353 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 535E8AD0514A4BCFF5875B77 /* Pods-MatchMadeInHeavenApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47BS437XF5;
 				INFOPLIST_FILE = MatchMadeInHeavenApp/Info.plist;
@@ -313,6 +409,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Edward.MatchMadeInHeavenApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = MatchMadeInHeavenApp/Bridger.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
