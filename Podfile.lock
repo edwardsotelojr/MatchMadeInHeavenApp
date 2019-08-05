@@ -1,16 +1,20 @@
 PODS:
-  - TimeZonePicker (1.2.0)
+  - GoogleMaps/Base (3.0.2)
+  - GooglePlaces (3.0.2):
+    - GoogleMaps/Base (= 3.0.2)
 
 DEPENDENCIES:
-  - TimeZonePicker
+  - GooglePlaces
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - TimeZonePicker
+    - GoogleMaps
+    - GooglePlaces
 
 SPEC CHECKSUMS:
-  TimeZonePicker: 8ed73f29ccbb2fca75855c0f3d7696c47abf5a90
+  GoogleMaps: 941cd655e009b4d8e42df19a3d749bc3fccec973
+  GooglePlaces: c086e0055dc5f0177d7c9d65fc77a1734f9a4825
 
-PODFILE CHECKSUM: 947a5b5d8515facf5279442ef7ea1d09905f4cfa
+PODFILE CHECKSUM: 48fcb99985cf6cf19778adf39e783cd413f328f6
 
 COCOAPODS: 1.6.1
