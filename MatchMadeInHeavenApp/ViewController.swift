@@ -23,7 +23,7 @@ var BirthChart = ["Name" : ["",""],
                   "Uranus" : ["",""],
                   "Neptune" : ["",""],
                   "Pluto": ["",""],
-                  "ChineseYear": ["",""]]
+                  "Chinese": ["",""]]
 
 class ViewController: UIViewController, UITextFieldDelegate{
     
@@ -689,7 +689,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         print(Year)
         print(UTCTime)
         for x in 0...1{
-            BirthChart["ChineseYear"]![x] = getChineseYearSign(firstLine: getFirstLine(year: Year[x]), monthNumber: monthNumber[x], day: Day[x], year: Year[x])
+            BirthChart["Chinese"]![x] = getChineseYearSign(firstLine: getFirstLine(year: Year[x]), monthNumber: monthNumber[x], day: Day[x], year: Year[x])
             var birthChartInUTC: String
             var compareChart: String
             BirthChart["Name"]![x] = Name[x]

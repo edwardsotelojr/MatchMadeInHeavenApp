@@ -17,11 +17,12 @@ class Results: UIViewController {
     var secondPersonMasculineCount = 0
     var secondPersonFeminineCount = 0
     
+    @IBOutlet weak var firstPersonChineseSign: UIImageView!
+    @IBOutlet weak var firstPersonChinese: UILabel!
     @IBOutlet weak var firstPersonName: UILabel!
     @IBOutlet weak var firstPersonDOB: UILabel!
     @IBOutlet weak var firstPersonMasculine: UILabel!
     @IBOutlet weak var firstPersonFeminine: UILabel!
-    @IBOutlet weak var firstPersonChineseSign: UILabel!
     @IBOutlet weak var firstPersonSun: UILabel!
     @IBOutlet weak var firstPersonTime: UILabel!
     @IBOutlet weak var firstSunSign: UIImageView!
@@ -44,12 +45,13 @@ class Results: UIViewController {
     @IBOutlet weak var firstPersonPluto: UILabel!
     @IBOutlet weak var firstPlutoSign: UIImageView!
     
+    @IBOutlet weak var secondPersonChineseSign: UIImageView!
     @IBOutlet weak var secondPersonName: UILabel!
     @IBOutlet weak var secondPersonDOB: UILabel!
     @IBOutlet weak var secondPersonMasculine: UILabel!
     @IBOutlet weak var secondPersonFeminine: UILabel!
     @IBOutlet weak var secondPersonTime: UILabel!
-    @IBOutlet weak var secondPersonChineseSign: UILabel!
+    @IBOutlet weak var secondPersonChinese: UILabel!
     @IBOutlet weak var secondPersonSun: UILabel!
     @IBOutlet weak var secondSunSign: UIImageView!
     @IBOutlet weak var secondPersonMoon: UILabel!
@@ -71,6 +73,8 @@ class Results: UIViewController {
     @IBOutlet weak var secondPersonPluto: UILabel!
     @IBOutlet weak var secondPlutoSign: UIImageView!
     
+    @IBOutlet weak var chineseSunConstraint1: NSLayoutConstraint!
+    @IBOutlet weak var chineseSunConstraint2: NSLayoutConstraint!
     @IBOutlet weak var compareChineseYear: UILabel!
     @IBOutlet weak var compareSun: UILabel!
     @IBOutlet weak var sunMoonConstraint1: NSLayoutConstraint!
@@ -85,17 +89,33 @@ class Results: UIViewController {
     @IBOutlet weak var mercuryVenusConstraint2: NSLayoutConstraint!
     @IBOutlet weak var Venus: UILabel!
     @IBOutlet weak var compareVenus: UILabel!
+    @IBOutlet weak var venusMarsConstraint1: NSLayoutConstraint!
+    @IBOutlet weak var venusMarsConstraint2: NSLayoutConstraint!
+    @IBOutlet weak var Mars: UILabel!
     @IBOutlet weak var compareMars: UILabel!
+    @IBOutlet weak var marsJupiterConstraint1: NSLayoutConstraint!
+    @IBOutlet weak var marsJupiterConstraint2: NSLayoutConstraint!
+    @IBOutlet weak var Jupiter: UILabel!
     @IBOutlet weak var compareJupiter: UILabel!
+    @IBOutlet weak var jupiterSaturnConstraint1: NSLayoutConstraint!
+    @IBOutlet weak var jupiterSaturnConstraint2: NSLayoutConstraint!
+    @IBOutlet weak var Saturn: UILabel!
     @IBOutlet weak var compareSaturn: UILabel!
+    @IBOutlet weak var saturnUranusConstraint1: NSLayoutConstraint!
+    @IBOutlet weak var saturnUranusConstraint2: NSLayoutConstraint!
+    @IBOutlet weak var Uranus: UILabel!
     @IBOutlet weak var compareUranus: UILabel!
+    @IBOutlet weak var uranusNeptuneConstraint1: NSLayoutConstraint!
+    @IBOutlet weak var uranusNeptuneConstraint2: NSLayoutConstraint!
+    @IBOutlet weak var Neptune: UILabel!
     @IBOutlet weak var compareNeptune: UILabel!
+    @IBOutlet weak var neptunePlutoConstraint1: NSLayoutConstraint!
+    @IBOutlet weak var neptunePlutoConstraint2: NSLayoutConstraint!
+    @IBOutlet weak var Pluto: UILabel!
     @IBOutlet weak var comparePluto: UILabel!
     
     @IBOutlet weak var comparison: UILabel!
-    @IBAction func rightGesture(sender: UISwipeGestureRecognizer) {
-        print ("Right")
-    }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,6 +141,14 @@ class Results: UIViewController {
                                 "neptune": info["Neptune"]![1],
                                 "pluto": info["Pluto"]![1],
         ]
+        
+        firstPersonName.text = info["Name"]![0]
+        secondPersonName.text = info["Name"]![1]
+        firstPersonDOB.text = info["DOB"]![0]
+        secondPersonDOB.text = info["DOB"]![1]
+        firstPersonTime.text = info["Time"]![0]
+        secondPersonTime.text = info["Time"]![1]
+        
         for (key, value) in firstPersonChart{
             if(getGender(sign: value) == 1){
                 firstPersonMasculineCount = firstPersonMasculineCount + 1
@@ -139,14 +167,19 @@ class Results: UIViewController {
         firstPersonFeminine.text = String(firstPersonFeminineCount)
         secondPersonMasculine.text = String(secondPersonMasculineCount)
         secondPersonFeminine.text = String(secondPersonFeminineCount)
-        print(info)
-        firstPersonName.text = info["Name"]![0]
-        secondPersonName.text = info["Name"]![1]
-        firstPersonDOB.text = info["DOB"]![0]
-        secondPersonDOB.text = info["DOB"]![1]
-        firstPersonTime.text = info["Time"]![0]
-        secondPersonTime.text = info["Time"]![1]
         
+        firstPersonChineseSign.image! = UIImage(named: info["Chinese"]![0])!
+        secondPersonChineseSign.image! = UIImage(named: info["Chinese"]![1])!
+        firstPersonChinese.text = getChineseDescription(sign: info["Chinese"]![0])
+        secondPersonChinese.text = getChineseDescription(sign: info["Chinese"]![1])
+        if(firstPersonChinese.text!.count > secondPersonChinese.text!.count){
+            chineseSunConstraint1.isActive = true
+            chineseSunConstraint2.isActive = false
+        }else{
+            chineseSunConstraint1.isActive = false
+            chineseSunConstraint2.isActive = true
+        }
+       
         firstPersonSun.text = getSunDescription(sign: info["Sun"]![0])
         firstSunSign.image = UIImage(named: getSignLogo(planet: info["Sun"]![0]))
         secondPersonSun.text = getSunDescription(sign: info["Sun"]![1])
@@ -187,39 +220,77 @@ class Results: UIViewController {
         firstVenusSign.image = UIImage(named: getSignLogo(planet: info["Venus"]![0]))
         secondPersonVenus.text = info["Venus"]![1]
         secondVenusSign.image = UIImage(named: getSignLogo(planet: info["Venus"]![1]))
+        if(firstPersonVenus.text!.count > secondPersonVenus.text!.count){
+            venusMarsConstraint1.isActive = true
+            venusMarsConstraint2.isActive = false
+        }else{
+            venusMarsConstraint1.isActive = false
+            venusMarsConstraint2.isActive = true
+        }
        
         firstPersonMars.text = info["Mars"]![0]
         firstMarsSign.image = UIImage(named: getSignLogo(planet: info["Mars"]![0]))
         secondPersonMars.text = info["Mars"]![1]
         secondMarsSign.image = UIImage(named: getSignLogo(planet: info["Mars"]![1]))
-       
+        if(firstPersonMars.text!.count > secondPersonMars.text!.count){
+            marsJupiterConstraint1.isActive = true
+            marsJupiterConstraint2.isActive = false
+        }else{
+            marsJupiterConstraint1.isActive = false
+            marsJupiterConstraint2.isActive = true
+        }
+        
         firstPersonJupiter.text = info["Jupiter"]![0]
         firstJupiterSign.image = UIImage(named: getSignLogo(planet: info["Jupiter"]![0]))
         secondPersonJupiter.text = info["Jupiter"]![1]
         secondJupiterSign.image = UIImage(named: getSignLogo(planet: info["Jupiter"]![1]))
-      
+        if(firstPersonJupiter.text!.count > secondPersonJupiter.text!.count){
+            jupiterSaturnConstraint1.isActive = true
+            jupiterSaturnConstraint2.isActive = false
+        }else{
+            jupiterSaturnConstraint1.isActive = false
+            jupiterSaturnConstraint2.isActive = true
+        }
+        
         firstPersonSaturn.text = info["Saturn"]![0]
         firstSaturnSign.image = UIImage(named: getSignLogo(planet: info["Saturn"]![0]))
         secondPersonSaturn.text = info["Saturn"]![1]
         secondSaturnSign.image = UIImage(named: getSignLogo(planet: info["Saturn"]![1]))
-      
+        if(firstPersonSaturn.text!.count > secondPersonSaturn.text!.count){
+            saturnUranusConstraint1.isActive = true
+            saturnUranusConstraint2.isActive = false
+        }else{
+            saturnUranusConstraint1.isActive = false
+            saturnUranusConstraint2.isActive = true
+        }
+        
         firstPersonUranus.text = info["Uranus"]![0]
         firstUranusSign.image = UIImage(named: getSignLogo(planet: info["Uranus"]![0]))
         secondPersonUranus.text = info["Uranus"]![1]
         secondUranusSign.image = UIImage(named: getSignLogo(planet: info["Uranus"]![1]))
-    
+        if(firstPersonUranus.text!.count > secondPersonUranus.text!.count){
+            uranusNeptuneConstraint1.isActive = true
+            uranusNeptuneConstraint2.isActive = false
+        }else{
+            uranusNeptuneConstraint1.isActive = false
+            uranusNeptuneConstraint2.isActive = true
+        }
+        
         firstPersonNeptune.text = info["Neptune"]![0]
         firstNeptuneSign.image = UIImage(named: getSignLogo(planet: info["Neptune"]![0]))
         secondPersonNeptune.text = info["Neptune"]![1]
         secondNeptuneSign.image = UIImage(named: getSignLogo(planet: info["Neptune"]![1]))
-    
+        if(firstPersonNeptune.text!.count > secondPersonNeptune.text!.count){
+            neptunePlutoConstraint1.isActive = true
+            neptunePlutoConstraint2.isActive = false
+        }else{
+            neptunePlutoConstraint1.isActive = false
+            neptunePlutoConstraint2.isActive = true
+        }
         firstPersonPluto.text = info["Pluto"]![0]
         firstPlutoSign.image = UIImage(named: getSignLogo(planet: info["Pluto"]![0]))
         secondPersonPluto.text = info["Pluto"]![1]
         secondPlutoSign.image = UIImage(named: getSignLogo(planet: info["Pluto"]![1]))
-       
-        firstPersonChineseSign.text = info["ChineseYear"]![0]
-        secondPersonChineseSign.text = info["ChineseYear"]![1]
         compareSun.text = String(Compare(firstSign: firstPersonSun.text!, secondSign: secondPersonSun.text!))
         compareMoon.text = String(Compare(firstSign: firstPersonMoon.text!, secondSign: secondPersonMoon.text!))
         compareMercury.text = String(Compare(firstSign: firstPersonMercury.text!, secondSign: secondPersonMercury.text!))
@@ -230,7 +301,7 @@ class Results: UIViewController {
         compareUranus.text = String(Compare(firstSign: firstPersonUranus.text!, secondSign: secondPersonUranus.text!))
         compareNeptune.text = String(Compare(firstSign: firstPersonNeptune.text!, secondSign: secondPersonNeptune.text!))
         comparePluto.text = String(Compare(firstSign: firstPersonPluto.text!, secondSign: secondPersonPluto.text!))
-        let addChinesePoint = chineseMatch(firstChineseYear: info["ChineseYear"]![0], secondChineseYear: info["ChineseYear"]![1]) + chineseMatch(firstChineseYear: info["ChineseYear"]![1], secondChineseYear: info["ChineseYear"]![0])
+        let addChinesePoint = chineseMatch(firstChineseYear: info["Chinese"]![0], secondChineseYear: info["Chinese"]![1]) + chineseMatch(firstChineseYear: info["Chinese"]![1], secondChineseYear: info["Chinese"]![0])
         compareChineseYear.text = String(addChinesePoint)
         comparison.text = comparisonResults(Hash: info)
     }
@@ -315,11 +386,11 @@ class Results: UIViewController {
     }
     
     func comparisonResults(Hash: [String : [String]]) -> String {
-        let firstPersonChart = [info["ChineseYear"]![0], info["Sun"]![0], info["Moon"]![0],
+        let firstPersonChart = [info["Chinese"]![0], info["Sun"]![0], info["Moon"]![0],
                                 info["Mercury"]![0], info["Venus"]![0], info["Mars"]![0],
                                 info["Jupiter"]![0], info["Saturn"]![0], info["Uranus"]![0],
                                 info["Neptune"]![0], info["Pluto"]![0]]
-        let secondPersonChart = [info["ChineseYear"]![1], info["Sun"]![1], info["Moon"]![1],
+        let secondPersonChart = [info["Chinese"]![1], info["Sun"]![1], info["Moon"]![1],
                                  info["Mercury"]![1], info["Venus"]![1], info["Mars"]![1],
                                  info["Jupiter"]![1], info["Saturn"]![1], info["Uranus"]![1],
                                  info["Neptune"]![1], info["Pluto"]![1]]
@@ -481,6 +552,37 @@ class Results: UIViewController {
         }
     }
     
+    func getChineseDescription(sign: String) -> String {
+        switch sign {
+        case "Rat":
+            return "Rats are quick-witted, resourceful, versatile, kind, smart, and lovely. With strong intuition and quick responses, Rats always easily adapt themselves to a new environment. With rich imaginations and sharp observations, they can take advantage of various opportunities well."
+        case "Ox":
+            return "Oxes are known for diligence, dependability, strength and determination. Having an honest nature, Oxes are strongly patriotic, have ideals and ambitions for life, and attach importance to family and work."
+        case "Tiger":
+            return "People born in a year of the Tiger are brave, competitive, unpredictable, and confident. They are very charming and well-liked by others. But sometimes they are likely to be impetuous, irritable, and overindulged."
+        case "Rabbit":
+            return "Rabbits tend to be gentle, quiet, elegant, and alert as well as quick, skillful, kind, patient, and very responsible. However, they might be superficial, stubborn, melancholy, and overly-discreet."
+        case "Dragon":
+            return "Gifted with innate courage, tenacity, and intelligence, Dragons are enthusiastic and confident. They are not afraid of challenges, and willing to take risks."
+        case "Snake":
+            return "Snakes tend to act according to their own judgments while remaining private and reticent. They are determined to accomplish their goals and hate to fail."
+        case "Horse":
+            return "People born in a year of the Horse are extremely animated, active and energetic. Horses love to be in a crowd, and they can usually be seen on such occasions as concerts, theater performances, meetings, sporting events, and parties."
+        case "Goat":
+            return "People born in a year of the Goat are generally believed to be gentle, mild-mannered, shy, stable, sympathetic, amicable, and brimming with a strong sense of kindheartedness and justice."
+        case "Monkey":
+            return "People born in a year of the Monkey have magnetic personalities and are witty and intelligent. Personality traits like mischievousness, curiosity, and cleverness make them very naughty."
+        case "Rooster":
+            return "People born in a year of the Rooster are very observant. Hardworking, resourceful, courageous, and talented, Roosters are very confident in themselves."
+        case "Dog":
+            return "Dogs are loyal and honest, amiable and kind, cautious and prudent. Due to having a strong sense of loyalty and sincerity, Dogs will do everything for the person who they think is most important."
+        case "Pig":
+            return "Pigs are diligent, compassionate, and generous. They have great concentration: once they set a goal, they will devote all their energy to achieving it. Though Pigs rarely seek help from others, they will not refuse to give others a hand. Pigs never suspect trickery, so they are easily fooled."
+        default:
+            return ""
+        }
+    }
+    
     func getSunDescription(sign:String) -> String {
         let signStart = sign.index(sign.startIndex, offsetBy:0)
         let signEnd = sign.index(sign.startIndex, offsetBy: 2)
@@ -586,8 +688,255 @@ class Results: UIViewController {
         }
     }
     
+    func getVenusDescription(sign:String) -> String {
+        let signStart = sign.index(sign.startIndex, offsetBy:0)
+        let signEnd = sign.index(sign.startIndex, offsetBy: 2)
+        let signRange = signStart..<signEnd
+        let planetSign = String(sign[signRange])
+        switch planetSign {
+        case "AR":
+            return ""
+        case "TA":
+            return ""
+        case "GE":
+            return ""
+        case "CN":
+            return ""
+        case "LE":
+            return ""
+        case "VI":
+            return ""
+        case "LI":
+            return ""
+        case "SC":
+            return ""
+        case "SG":
+            return ""
+        case "CP":
+            return ""
+        case "AQ":
+            return ""
+        case "PI":
+            return ""
+        default:
+            return ""
+        }
+    }
+    
+    func getMarsDescription(sign:String) -> String {
+        let signStart = sign.index(sign.startIndex, offsetBy:0)
+        let signEnd = sign.index(sign.startIndex, offsetBy: 2)
+        let signRange = signStart..<signEnd
+        let planetSign = String(sign[signRange])
+        switch planetSign {
+        case "AR":
+            return ""
+        case "TA":
+            return ""
+        case "GE":
+            return ""
+        case "CN":
+            return ""
+        case "LE":
+            return ""
+        case "VI":
+            return ""
+        case "LI":
+            return ""
+        case "SC":
+            return ""
+        case "SG":
+            return ""
+        case "CP":
+            return ""
+        case "AQ":
+            return ""
+        case "PI":
+            return ""
+        default:
+            return ""
+        }
+    }
+    func getJupiterDescription(sign:String) -> String {
+        let signStart = sign.index(sign.startIndex, offsetBy:0)
+        let signEnd = sign.index(sign.startIndex, offsetBy: 2)
+        let signRange = signStart..<signEnd
+        let planetSign = String(sign[signRange])
+        switch planetSign {
+        case "AR":
+            return ""
+        case "TA":
+            return ""
+        case "GE":
+            return ""
+        case "CN":
+            return ""
+        case "LE":
+            return ""
+        case "VI":
+            return ""
+        case "LI":
+            return ""
+        case "SC":
+            return ""
+        case "SG":
+            return ""
+        case "CP":
+            return ""
+        case "AQ":
+            return ""
+        case "PI":
+            return ""
+        default:
+            return ""
+        }
+    }
+    func getSaturnDescription(sign:String) -> String {
+        let signStart = sign.index(sign.startIndex, offsetBy:0)
+        let signEnd = sign.index(sign.startIndex, offsetBy: 2)
+        let signRange = signStart..<signEnd
+        let planetSign = String(sign[signRange])
+        switch planetSign {
+        case "AR":
+            return ""
+        case "TA":
+            return ""
+        case "GE":
+            return ""
+        case "CN":
+            return ""
+        case "LE":
+            return ""
+        case "VI":
+            return ""
+        case "LI":
+            return ""
+        case "SC":
+            return ""
+        case "SG":
+            return ""
+        case "CP":
+            return ""
+        case "AQ":
+            return ""
+        case "PI":
+            return ""
+        default:
+            return ""
+        }
+    }
+    func getUranusDescription(sign:String) -> String {
+        let signStart = sign.index(sign.startIndex, offsetBy:0)
+        let signEnd = sign.index(sign.startIndex, offsetBy: 2)
+        let signRange = signStart..<signEnd
+        let planetSign = String(sign[signRange])
+        switch planetSign {
+        case "AR":
+            return ""
+        case "TA":
+            return ""
+        case "GE":
+            return ""
+        case "CN":
+            return ""
+        case "LE":
+            return ""
+        case "VI":
+            return ""
+        case "LI":
+            return ""
+        case "SC":
+            return ""
+        case "SG":
+            return ""
+        case "CP":
+            return ""
+        case "AQ":
+            return ""
+        case "PI":
+            return ""
+        default:
+            return ""
+        }
+    }
+    
+    func getNeptuneDescription(sign:String) -> String {
+        let signStart = sign.index(sign.startIndex, offsetBy:0)
+        let signEnd = sign.index(sign.startIndex, offsetBy: 2)
+        let signRange = signStart..<signEnd
+        let planetSign = String(sign[signRange])
+        switch planetSign {
+        case "AR":
+            return ""
+        case "TA":
+            return ""
+        case "GE":
+            return ""
+        case "CN":
+            return ""
+        case "LE":
+            return ""
+        case "VI":
+            return ""
+        case "LI":
+            return ""
+        case "SC":
+            return ""
+        case "SG":
+            return ""
+        case "CP":
+            return ""
+        case "AQ":
+            return ""
+        case "PI":
+            return ""
+        default:
+            return ""
+        }
+    }
+    
+    func getPlutoDescription(sign:String) -> String {
+        let signStart = sign.index(sign.startIndex, offsetBy:0)
+        let signEnd = sign.index(sign.startIndex, offsetBy: 2)
+        let signRange = signStart..<signEnd
+        let planetSign = String(sign[signRange])
+        switch planetSign {
+        case "AR":
+            return ""
+        case "TA":
+            return ""
+        case "GE":
+            return ""
+        case "CN":
+            return ""
+        case "LE":
+            return ""
+        case "VI":
+            return ""
+        case "LI":
+            return ""
+        case "SC":
+            return ""
+        case "SG":
+            return ""
+        case "CP":
+            return ""
+        case "AQ":
+            return ""
+        case "PI":
+            return ""
+        default:
+            return ""
+        }
+    }
     
     
-   
+    
+    
+    
+    
+    @IBAction func rightGesture(sender: UISwipeGestureRecognizer) {
+        print ("Right")
+    }
     
 }
