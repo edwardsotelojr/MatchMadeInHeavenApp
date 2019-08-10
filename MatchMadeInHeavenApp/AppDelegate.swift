@@ -14,12 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Google Places API
         GMSPlacesClient.provideAPIKey("AIzaSyABBVE90zE3SB_kb52KWFSS2Fqumy303do")
-        // Set some colors (colorLiteral is convenient)
-        let barColor: UIColor =  _ColorLiteralType(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        
+        let barColor: UIColor =  #colorLiteral(red: 0.07083788381, green: 0.2201354757, blue: 0.6552189086, alpha: 1)
         let backgroundColor: UIColor =  _ColorLiteralType(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         let textColor: UIColor =  _ColorLiteralType(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         // Navigation bar background.
